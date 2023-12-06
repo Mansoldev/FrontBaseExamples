@@ -1,0 +1,17 @@
+:root {
+    /* colores */
+    --color-green: hsl(120,100%,80%);
+    --color-lightgray: #eee;
+    --color-dark: #222;
+    --color-black: #000;
+
+    /* estilos del tema */
+    --theme-primary: var(--color-green);
+    --theme-secondary: var(--color-lightgray);
+    --theme-background: var(--color-dark);
+    --theme-text: var(--color-lightgray);
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
