@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="age" min="18" max="99" value="18" required>
+    <input type="email" name="mail" placeholder="my@email.com" required> <!--pattern="^((?!hotmail\.com).)*$" Excluir hotmail-->
+    <input type="text" name="nombre" patter="[\sa-zA-Z]+">
+    <div class="error-message"></div>
+    
+    <style>
+        /* Gracias a la amplia variedad de pseudo-selectores que nos ofrece CSS podemos generar una formulario con gestión de errores user-friendly, 
+        en este caso lo conseguimos con la combinación de varios selectores: */
+        input:not(:focus, :placeholder-shown):invalid {
+            border-color: #cb648c;
+        }
+
+        .error-message {
+            display: none;
+            margin-top: 0.5rem;
+            color: #cb648c;
+            font-weight: bold;
+        }
+
+        /* Además podemos aún ayudar más al usuario mostrandole un mensaje de error para darle información, 
+        creando un mensaje oculto visualmente que solo se muestre en el caso de error **gracias también a General sibling pattern */
+        input:not(:focus, :placeholder-shown):invalid~.error-message {
+            display: block;
+        }
+    </style>
+</body>
+</html>

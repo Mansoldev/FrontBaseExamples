@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Agrupar</legend>
+
+        <label class="sr-only"></label><!-- Para los screen readers -->
+        <input aria-label="Nombre y Apellidos" aria-describedby="errorMessage" placeholder="Mi nombre y apellidos"> 
+        <!-- aria-label = label con sr-only -->
+        <!-- aria-describedby: dice el id donde están los mensajes de invalidacion -->
+        <div id="errorMessage" class="error-message"></div>
+    </fieldset>
+
+    <!-- Otra forma de accesibilidad -->
+    <!-- role:group > Es una agrupacion -->
+    <!-- aria-labelledby > El texto relacionado es el del Id -->
+    <div role="group" aria-labelledby="work-area-group">
+        <h4 id="work-area-group">Agrupar</h4>
+    </div>
+
+    <style>
+        .form-group > * + * {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</body>
+</html>

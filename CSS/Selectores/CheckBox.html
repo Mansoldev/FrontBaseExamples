@@ -20,13 +20,7 @@
             clip: rect(0, 0, 0, 0); /* = */
         }
 
-        .checkbox {
 
-        }
-
-        .checkbox__label {
-
-        }
 
         /* Mediante el Immediate sibling pattern + la asociamos gracias al tag input y su correspondiente atributo [type="checkbox"] */
         input[type="checkbox"]+label::before {
@@ -47,9 +41,16 @@
         en cuenta a la hora de mostrar que elemento está seleccionado por lo que tenemos que forzar esa situación. Esto lo vamos a gestionar gracias a la pseudo-clase 
         :focus-visible. ¿Por que :focus-visible y no :focus?
         Con :focus-visible solo será visible cuando la navegación sea mediante el teclado y no con el click del ratón, ya que solo nos interesa que aparezca en ese momento.*/
-        input[type="checkbox"]:focus+label::before {
+        input[type="checkbox"]:focus-visible+label::before {
             box-shadow: 0 0 0 3px #ffbf47;
         }
+
+        /* .checkbox {
+
+        }
+        .checkbox__label {
+
+        } */
     </style>
 </body>
 </html>
