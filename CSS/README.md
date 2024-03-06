@@ -30,9 +30,9 @@
 
 ## BUENA ESTRUCTURA CSS:
 
-* Settings
-* Tools
-* Generic
+* Settings: Tokens de diseño y variables CSS, colores, typografia
+* Tools: mixins
+* Generic: normalize, box-sizing...
 * Base: elementos y pseudo-elementos
 * Componentes: clases
 * Trumps: Ids
