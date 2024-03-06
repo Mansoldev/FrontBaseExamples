@@ -1,5 +1,7 @@
 # ORDEN DE CSS:
 
+[Web practica cascada](https://2019.wattenberger.com/blog/css-cascade)
+
 **ORIGEN (Entorno/Navegador):**
 
 1. Estilos del navegador (User-agent styles)
@@ -14,9 +16,10 @@
 
 **ESPECIFICIDAD (Selectores):**
 
-1. #IDs
-2. .Clases
-3. elementos HTML y ::Pseudo-elementos
+1. Layers
+2. #IDs
+3. .Clases, atributos ([checked]) y pseudo-clases (:hover, :first-of-type))
+4. elementos HTML y ::Pseudo-elementos (::before y ::after)
 
 **IMPORTANCIA (Para una propiedad):**
 
@@ -24,3 +27,12 @@
 2. !important
 3. Animaciones
 4. Reglas normales
+
+## BUENA ESTRUCTURA CSS:
+
+* Settings
+* Tools
+* Generic
+* Base: elementos y pseudo-elementos
+* Componentes: clases
+* Trumps: Ids

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox personalizado</title>
+</head>
+<body>
+    <input type="checkbox" id="personalizado">
+    <label for="personalizado" class="checkbox__label">
+        <div class="checkbox checkbox__checked"></div>
+        BilboStack
+    </label>
+
+    <style>
+        /* Oculta el checkbox normal, No usamos display:none para que los screen readers sean capaces de leerlo. */
+        input[type="checkbox"] {
+            position: absolute;
+            clip-path: inset(50%);
+            clip: rect(0, 0, 0, 0); /* = */
+        }
+
+        .checkbox {
+
+        }
+
+        .checkbox__label {
+
+        }
+
+        /* Mediante el Immediate sibling pattern + la asociamos gracias al tag input y su correspondiente atributo [type="checkbox"] */
+        input[type="checkbox"]+label::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Lo último que nos queda es indicar qué queremos que pase cuando el input este en estado :checked de la siguiente manera. */
+        input[type="checkbox"]:checked+label::before {
+            font-size: 1.75rem;
+            border: 0.13rem solid #0eb2bf;
+            content: "\2713";
+        }
+        
+        /* Pero no debemos de olvidarnos de la accesibilidad. Al ser un fake checkbox en el caso de querer navegar la página mediante el tab del teclado no va a tenerlo 
+        en cuenta a la hora de mostrar que elemento está seleccionado por lo que tenemos que forzar esa situación. Esto lo vamos a gestionar gracias a la pseudo-clase 
+        :focus-visible. ¿Por que :focus-visible y no :focus?
+        Con :focus-visible solo será visible cuando la navegación sea mediante el teclado y no con el click del ratón, ya que solo nos interesa que aparezca en ese momento.*/
+        input[type="checkbox"]:focus+label::before {
+            box-shadow: 0 0 0 3px #ffbf47;
+        }
+    </style>
+</body>
+</html>
