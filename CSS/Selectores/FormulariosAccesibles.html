@@ -24,8 +24,34 @@
     </div>
 
     <style>
-        .form-group > * + * {
+        /* Owl pattern > Todos los hijos */
+        /* .form-group > * + * {
             margin-bottom: 1.5rem;
+        } */
+
+        /* Todos los hijos menos el último */
+        /* .form-item :not(:last-child) {
+			margin-bottom: 1rem;
+		} */
+
+        /* Todos los hijos de un elemento, otra forma (2n+1) n se va incrementando de 1 en 1 */
+        /* .radio_item :nth-child(odd) {
+		    background-color: #0eb3bf36;
+	    } */
+
+        /* Todos los hijos de un mismo tipo */
+        .radio_item :nth-of-type(odd) {
+		    background-color: #0eb3bf36;
+	    }
+
+        /* Todos los hijos de un mismo tipo, pero empieza por el último */
+        /* .radio_item :nth-last-of-type(odd) {
+		    background-color: #0eb3bf36;
+	    } */
+
+        /* Aplica a todos los titulos de una sección */
+        :is(section) :is(h2, h3, h4, h5, h6) {
+            color: #0e7981;
         }
     </style>
 </body>
