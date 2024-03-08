@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtros hechos con Flex, sin mediaquerys, cuando la pantalla se vuelve mas pequeña el search cae</title>
+</head>
+<body>
+    <style>
+        /* FILTROS MENU SUPERIOR */
+        /* Sin relevancia */
+        .container {
+            background-color: aqua;
+            padding: 10px;
+        }
+        .filtro {
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+
+        /* Magia flex filtros */
+        .layout {
+            display:flex;
+            align-items: center;
+            flex-wrap: wrap; /* Permite que los elementos caigan a una segunda línea. */
+        }
+        .filters {
+            flex-grow: 1; /* Representa el factor según el que los elementos se reparten el espacio libre. Si todos los elementos tienen el mismo valor, se lo repartirán a partes iguales. Nos permite que los elementos crezcan cuando saltan de línea. */
+        }
+        .search {
+            flex-grow: 1;
+            flex-basis: 0; /* Representa el espacio que tiene ese elemento antes de repartirse el espacio libre. Es decir, si un elemento tiene flex-basis: 10rem, esos 10rem dejan de contar como espacio libre. */
+        }
+        /* A mi el basis no me hace nada */
+
+
+        /* GRID */
+        body {
+            background-color: lavender;
+        }
+        .card {
+            background-color: white;
+        }
+        /* Adapta la imagen al contenedor MAGICCC */
+        .card__image {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        /* MAGIC, se van autoajustando al tamaño */
+        .layout-grid {
+            margin-top: 20px;
+            max-width: 80rem;
+            margin-left: auto;
+            margin-right: auto; /* Hasta aqui para ajustar donde va el grid entero y lo que ocupa */
+            display:grid;
+            /* grid-template-columns: repeat(4, 1fr); */ /* Divideme en 4 filas de 1fr */
+            grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); /* Autorellename la grilla con cards de mínimo 18rem y máximo 1fr */
+            gap: 1rem;
+        }
+    </style>
+
+    <div class="container">
+        <section class="layout">
+            <div class="filters">
+                <div class="filtro">Arquitectura</div>
+                <div class="filtro">DevOps</div>
+                <div class="filtro">Tooling</div>
+                <div class="filtro">Backend</div>
+                <div class="filtro">Javasript</div>
+                <div class="filtro">Mobile</div>
+            </div>
+            <input class="search" type="text" placeholder="Buscar...">
+        </section>
+    </div>
+
+    <section class="layout-grid">
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 2</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 3</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 4</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 5</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 6</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 7</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 8</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 9</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 10</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+    </section>
+</body>
+</html>
