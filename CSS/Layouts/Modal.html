@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lavender;
+        }
+        .card {
+            background-color: white;
+        }
+        .card__image {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .layout-grid {
+            display:grid;
+            grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); 
+            gap: 1rem;
+        }
+
+        /* MAGIA */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+        }
+        .modal {
+            position: relative;
+            min-width: 85vw;
+            max-height: 100vh;
+            padding: 4rem 1vw;
+            overflow: auto;
+            box-shadow: 0 0 1rem #000;
+            background-color: #fff;
+        }
+        .modal-close {
+            position: absolute;
+            margin: 0;
+            padding: 0 1rem;
+            font-size: 2rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            top: 1rem;
+            right: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="layout-grid">
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 2</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 3</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 4</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 5</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 6</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 7</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 8</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 9</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 10</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+        </article>
+    </section>
+
+    <div class="modal-backdrop">
+        <div class="modal">
+            <button class="modal-close" aria-label="Cerrar">X</button>
+            <h2>Curso 1</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, vel suscipit ut sint quos amet animi. Corrupti, 
+                amet quo, vitae aperiam ipsa, aut illum aliquid laboriosam culpa veniam sequi numquam!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
