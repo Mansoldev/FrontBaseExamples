@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: lavender;
+        }
+        .filtro {
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+        .card {
+            background-color: white;
+        }
+        .card__image {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        /* Magia */
+        .main-grid {
+            display: grid;
+            grid-template-areas: 
+            'title   title   title   title'
+            'content content content sidebar';
+            gap: 2rem;
+        }
+        .title {
+            grid-area: title;
+            text-align: center;
+        }
+        .layout-grid {
+            grid-area: content;
+            display:grid;
+            grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); /* Autorellename la grilla con cards de mínimo 18rem y máximo 1fr */
+            gap: 1rem;
+        }
+        .layout {
+            grid-area: sidebar;
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            row-gap: 0.5rem;
+        }
+    </style>
+
+    <div class="main-grid">
+        <section class="title">
+            <h2>CURSOS</h2>
+        </section>
+
+        <section class="layout-grid">
+            <article class="card">
+                <img class="card__image" src="https://dummyimage.com/600" alt="">
+                <h2>Curso 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+            </article>
+            <article class="card">
+                <img class="card__image" src="https://dummyimage.com/600" alt="">
+                <h2>Curso 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+            </article>
+            <article class="card">
+                <img class="card__image" src="https://dummyimage.com/600" alt="">
+                <h2>Curso 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+            </article>
+            <article class="card">
+                <img class="card__image" src="https://dummyimage.com/600" alt="">
+                <h2>Curso 4</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+            </article>
+            <article class="card">
+                <img class="card__image" src="https://dummyimage.com/600" alt="">
+                <h2>Curso 5</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+            </article>
+            <article class="card">
+                <img class="card__image" src="https://dummyimage.com/600" alt="">
+                <h2>Curso 6</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam</p>
+            </article>
+        </section>
+
+        <section class="layout">
+            <input class="search" type="text" placeholder="Buscar...">
+            <div class="filtro">Arquitectura</div>
+            <div class="filtro">DevOps</div>
+            <div class="filtro">Tooling</div>
+            <div class="filtro">Backend</div>
+            <div class="filtro">Javasript</div>
+            <div class="filtro">Mobile</div>
+        </section>
+    </div>
+</body>
+</html>
