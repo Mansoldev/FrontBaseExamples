@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        section {
+            height: 200px;
+        }
+        section:nth-child(even) {
+            background-color: grey;
+        }
+        /* 1 con margin, solo horizontal y limitada */
+        .margin {
+            width: fit-content; /* El ancho se adapta al contenido */
+            margin: 0 auto;
+        }
+        /* 2 con align-center, limitada pero vertical y horizontal */
+        .textAlign {
+            text-align: center;
+            line-height: 300px; /* Deberia coincidir con el height pero no funca */
+        }
+        /* 3 con position absolute */
+        .absolute {
+            position:relative;
+        }
+        .absolute img {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+        }
+        /* 4 con flex */
+        .flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* 5 con grid */
+        .grid {
+            display: grid;
+            place-items: center;
+        }
+        /* .grid img {
+            align-self:center;
+            justify-self: center;
+        } */
+    </style>
+</head>
+<body>
+    <section class="margin">
+        <img src="https://dummyimage.com/100" alt="">
+    </section>
+    <section class="textAlign">
+        <img src="https://dummyimage.com/100" alt="">
+    </section>
+    <section class="absolute">
+        <img src="https://dummyimage.com/100" alt="">
+    </section>
+    <section class="flex">
+        <img src="https://dummyimage.com/100" alt="">
+        <img src="https://dummyimage.com/100" alt="">
+        <img src="https://dummyimage.com/100" alt="">
+    </section>
+    <section class="grid">
+        <img src="https://dummyimage.com/100" alt="">
+    </section>
+</body>
+</html>

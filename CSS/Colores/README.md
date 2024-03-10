@@ -20,4 +20,4 @@ https://coolors.co/
 
 https://color.adobe.com/es/
 
-[Colección de codepens del curso](https://codepen.io/collection/zxJqbq?cursor=eyJwYWdlIjoxfQ==)
+[Colección de codepens del curso](https://codepen.io/collection/zxJqbq?cursor=eyJwYWdlIjoxfQ==): Degradados, herramientas de desarrollo, etc...
