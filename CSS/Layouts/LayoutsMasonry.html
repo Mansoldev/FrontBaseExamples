@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lavender;
+        }
+        .card {
+            background-color: white;
+            /* margin: 1rem; */
+            break-inside: avoid;
+        }
+        .card__image {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        /* NO VA */
+        /* Hemos visto como sacar partido a grid para crear sistemas de columnas, pero no es la única forma. Con multi-column podemos conseguir 
+        que el texto se disponga en columnas de manera fluida y responsive, y también conseguir efectos como masonry, que en el pasado tenía se tenía que hacer usando JavaScript. 
+        Con las propiedades break-before, break-after y break-inside podemos controlar en que puntos queremos o no saltar de columna. */
+        .layout-grid {
+            margin-top: 20px;
+            max-width: 80rem;
+            margin-left: auto;
+            margin-right: auto; 
+            display:grid;
+            column-width: 18rem;
+            grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); 
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="layout-grid">
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 1</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita,
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 2</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 3</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta officiis eius aperiam
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta officiis eius aperiam
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 4</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 5</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, 
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 6</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta officiis eius aperiam
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta officiis eius aperiam
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 7</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam    
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 8</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta officiis eius aperiam
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta officiis eius aperiam
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 9</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis 
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 10</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta officiis eius aperiam
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta officiis eius aperiam
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 11</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 12</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, 
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 13</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta officiis eius aperiam
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta officiis eius aperiam
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 14</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam
+            </p>
+        </article>
+        <article class="card">
+            <img class="card__image" src="https://dummyimage.com/600" alt="">
+            <h2>Curso 15</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, voluptates aspernatur dignissimos soluta officiis eius aperiam voluptates aspernatur dignissimos soluta 
+            </p>
+        </article>
+    </section>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0 600px;
+        }
+
+        /* Gracias a flex y grid ya no tenemos que crear layouts de columnas usando float, pero eso no significa que haya dejado de tener su uso. 
+        Con float podemos conseguir layouts más variados, por ejemplo para conseguir que el texto siga la forma de una imagen, especialmente si lo combinamos 
+        con la propiedad shape-outside. */
+        /* Se pone un png transparente para que el texto la siga, que no sea cuadrada */
+        .float {
+            float: left;
+            max-width: 32%;
+            shape-outside: url('https://codelytv.github.io/css-layouts-best-practises-course/_nuxt/img/rico-sonriente-2273.2d9c279.png'); 
+            shape-margin: 1rem; /* Distancia con el shape */
+        }
+        /* Además, a día de hoy ya no es necesario recorrer al famoso truco de clearfix: si ponemos la propiedad display: flow-root al elemento contenedor, 
+        conseguiremos el efecto clearfix sin tener que añadir markup extra. */
+        .content {
+            border: 2px solid tomato;
+            display: flow-root; /* Con esto haces que el float aplique en el flujo */
+        }
+    </style>
+</head>
+<body>
+    <section class="content">
+        <img class="float" src="https://codelytv.github.io/css-layouts-best-practises-course/_nuxt/img/rico-sonriente-2273.2d9c279.png" alt="">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsam, ad recusandae quasi hic harum? 
+            Itaque sit dicta iusto consequatur ut, a natus! In voluptatibus reiciendis laudantium nostrum! Nulla, repellat.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, reiciendis! Et, adipisci? Mollitia nihil ea 
+            repudiandae voluptatibus corporis maiores ratione iure nostrum quia repellendus. Velit explicabo id fugiat itaque perferendis!
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, nemo? In doloribus non deleniti aut obcaecati, 
+            odit animi quas perspiciatis quibusdam delectus ex quidem tempore et accusantium, nisi qui iste?
+        </p>
+        <ul>
+            <li>uno</li>
+            <li>dos</li>
+        </ul>
+    </section>
+</body>
+</html>

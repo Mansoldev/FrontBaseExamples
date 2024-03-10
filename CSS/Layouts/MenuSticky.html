@@ -25,15 +25,21 @@
             gap: 1rem;
         }
 
-        /* Tiene que haber overflow */
+        /* MAGIC: Tiene que haber overflow */
+        /* La propiedad sticky nos permite que ciertos elementos se peguen al viewport y sigan el scroll sin romper el layout. 
+        Es una propiedad muy útil pero tiene una limitación: siempre va a posicionarse en relación al elemento que tenga un sistema de scroll, 
+        es decir, un elemento que tenga la propiedad overflow seteada a cualquier valor que no sea auto, aunque no sea el elemento en el que estamos haciendo scroll. 
+        Por este motivo suele ser buena idea que estos elementos estén lo menos anidados posible. */
         .header {
-            position: sticky; /* Se pega al elemento que pueda tener overflow, por ejemplo al body */
+            position: sticky; /* Se pega al elemento superior (padre), si tiene overflow hidden peta */
             top: 0;
             width: 100%;
             background: black;
             box-shadow: 0 0  1rem black;
             color: white;
         }
+        /* Si el superior tiene overflow:hidden, le puedes poner max-height: 100vh; */
+        /* Prueba de sticky en contenedores */
     </style>
 </head>
 <body>
