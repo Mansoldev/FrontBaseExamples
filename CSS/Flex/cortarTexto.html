@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            border: 1px solid black;
+            width: 20%;
+            margin: 0 auto;
+        }
+        .ellipsis {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .clamp {
+            overflow: hidden;
+            /* white-space: nowrap; */
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <p class="ellipsis">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, repellendus! Perspiciatis error suscipit ratione quisquam cumque commodi quis dicta, 
+            numquam eveniet mollitia aliquam pariatur reiciendis voluptas adipisci sint necessitatibus officiis.
+        </p>
+    </div>
+    <br>
+    <div class="card">
+        <p class="clamp">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, repellendus! Perspiciatis error suscipit ratione quisquam cumque commodi quis dicta, 
+            numquam eveniet mollitia aliquam pariatur reiciendis voluptas adipisci sint necessitatibus officiis.
+        </p>
+    </div>
+</body>
+</html>
