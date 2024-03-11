@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        body {
+            background: mediumturquoise;
+            color: #fff;
+            font-family: sans-serif;
+            font-size: 1rem;
+            max-width: 72rem;
+            line-height: 1.8;
+            margin: 0 auto;
+        }
+        a {
+            color: #2d5d7b;
+            text-decoration: underline;
+        }
+        a:hover, a:focus {
+            color: #457eac;
+        }
+        .container {
+            padding: 1rem;
+        }
+        .gallery {
+            margin-top: 1rem;
+        }
+        .card {
+            overflow: hidden;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 0.3rem;
+            box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.4);
+            color: #333;
+            width: 20rem;
+        }
+        .card__img {
+            display: block;
+            width: calc(100% + 2rem);
+            height: 12rem;
+            border-bottom: 3px solid #9191e9;
+            margin: -1rem -1rem 0;
+            background: #9191e9;
+        }
+        .card__img img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card__title {
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+        .card__title a {
+            text-decoration: none;
+        }
+        .card__category {
+            text-decoration: underline;
+        }
+        .menu ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .menu ul li {
+            margin-bottom: 0.3rem;
+            border: 1px solid tomato;
+            text-align: center;
+            border-radius: 0.2rem;
+            color: #2d5d7b;
+            background-color: white;
+        }
+
+        /* MAGIC */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .container .menu {
+            flex-basis: 20rem;
+            flex-grow: 1;
+        }
+        .container .gallery {
+            flex-basis: 0;
+            flex-grow: 999;
+            min-width: 60%;
+        }
+
+        .menu ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .menu ul li {
+            flex-grow: 1;
+            flex-basis: 20rem;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .gallery .card {
+            flex: 1 1 40%;
+            min-width: 15rem; /* Con esto queda una columna si baja */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>☕ Café con Codely News</h1>
+      </header>
+      <main class="container">
+        <section class="menu">
+          <ul>
+            <li>
+              <a target="_blank" href="https://codely.tv/">Codely TV</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://twitter.com/codelytv">Twitter</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.youtube.com/channel/UC9IKtxn9AIGelnYmwYr0Lxw">Youtube</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.twitch.tv/codelytv">Twitch</a>
+            </li>
+          </ul>
+        </section>
+        <div class="gallery">
+          <article class="card">
+            <div class="card__img">
+              <img alt="Captura del programa GameMaker" src="https://i.blogs.es/a52d06/gamemaker/1366_2000.jpg" />
+            </div>
+    
+            <h4 class="card__title">
+              <a href="https://www.genbeta.com/desarrollo/motor-creacion-videojuegos-gamemaker-ofrece-version-gratuita-limite-tiempo-anuncia-su-llegada-a-linux?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+genbeta+%28Genbeta%29"
+                target="_blank">
+                Actualización en GameMaker
+              </a>
+            </h4>
+            <p>
+              El motor de creación de videojuegos GameMaker ofrece una versión gratuita sin límite de tiempo y anuncia su
+              llegada a Linux
+            </p>
+          </article>
+          <article class="card">
+            <div class="card__img">
+              <img alt="Captura de un tema de VSCode con colores ocuros" src="https://i.redd.it/unyodjbxmqs21.png" />
+            </div>
+    
+            <h4 class="card__title">
+              <a href="https://www.reddit.com/r/vscode/comments/be2qr3/for_those_of_you_who_didnt_like_my_light_theme/"
+                target="_blank">
+                Nuevo tema oscuro de VS Code
+              </a>
+            </h4>
+            <p>El nuevo tema que le gusta mucho a Rafa.</p>
+          </article>
+          <article class="card">
+            <div class="card__img">
+              <img alt="Captura de la home page de Babel"
+                src="https://pbs.twimg.com/profile_banners/2958823554/1491134069/1500x500" />
+            </div>
+    
+            <h4 class="card__title">
+              <a href="https://babeljs.io/blog/2021/07/26/7.15.0" target="_blank">
+                Nueva versión de Babel: 7.15.0
+              </a>
+            </h4>
+            <p>
+              La nueva versión incluye cosas molonas como "top level await", "TypeScript const enums supports" y "Hash-style
+              pipeline operator".
+            </p>
+          </article>
+          <article class="card">
+            <div class="card__img">
+              <img alt="Imagen del nuevo DNI 4.0" src="https://i.blogs.es/5d012b/dni-4.0/1366_2000.jpg" />
+            </div>
+    
+            <h4 class="card__title">
+              <a href="https://www.xataka.com/empresas-y-economia/dni-4-0-entra-hoy-vigor-esta-aqui-nuevo-formato-europeo-que-se-integrara-movil"
+                target="_blank">
+                Llega el DNI 4.0
+              </a>
+            </h4>
+            <p>
+    
+              El DNI 4.0 entra hoy en vigor: ya está aquí el nuevo formato europeo que se integrará en el móvil
+            </p>
+          </article>
+        </div>
+      </main>
+</body>
+</html>
