@@ -17,32 +17,10 @@
             object-fit: cover;
         }
 
-        /* MAGIA, regular */
         .layout-grid {
             display: grid;
             gap: 1rem;
-            grid-template: repeat(5, 31rem) / 15rem;
-            /* justify-content: center;
-            align-content: center; */
-            place-content: center; /* Centra en ambos vertices */
-        }
-
-        @media screen and (min-width: 35rem) {
-            .layout-grid {
-                grid-template: repeat(3, 31rem) / repeat(2, 15rem);
-            }
-        }
-
-        @media screen and (min-width: 55rem) {
-            .layout-grid {
-                grid-template: repeat(2, 31rem) / repeat(3, 15rem);
-            }
-        }
-
-        @media screen and (min-width: 70rem) {
-            .layout-grid {
-                grid-template: repeat(1, 31rem) / repeat(4, 15rem);
-            }
+            grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
         }
     </style>
 </head>
