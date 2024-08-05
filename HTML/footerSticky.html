@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Sticky</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; }
+        header, footer { background-color: pink; }
+
+        /* SOLUCIÓN TRUCHA */
+        /*html { height: 100%;} SINO PETA EN MOVILES
+        body {
+            min-height: 100%; 100dvh; [d/s/l]vh SINO PETA EN MOVILES
+            display:grid; CON GRID
+            grid: auto / 1em 1fr 1em; PROBAR auto 1fr auto;
+            display: flex; CON FLEX
+            flex-direction: column;
+        }  
+        footer { margin-top:auto; }*/
+        /* SOLUCIÓN BUENA */
+        body { 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .sticky-header {
+            position: sticky;
+            top: 0;
+        }
+        .sticky-bottom {
+            position: sticky;
+            bottom: 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky-header">
+        <label for="">Logo</label>
+        <label for="">Menu</label>
+    </header>
+
+    <main>
+        <section>
+            <h1>Short Section</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae perferendis reprehenderit soluta vero facilis inventore accusantium architecto consequuntur culpa, tenetur deserunt enim optio numquam eos atque reiciendis. Illum, est. Error.</p>
+        </section>
+    </main>
+
+    <footer class="sticky-bottom">
+        Copyright &copy;
+    </footer>
+</body>
+</html>
