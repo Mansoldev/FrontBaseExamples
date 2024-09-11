@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css"/>
+    <link rel="stylesheet" href="./loader.css" type="text/css" />
+    <title>Ejemplo llamada secuencial</title>
+    <script src="ApiSimulator.js"></script>
+  </head>
+  <body>
+    <h1>User dashboard</h1>
+
+    <section>
+      <h5>User info</h5>
+      <ul>
+        <li>Name: <span id="userName"></span></li>
+        <li>Email: <span id="userEmail"></span></li>
+      </ul>
+
+      <h5>User enrolled courses</h5>
+      <ul id="courses"></ul>
+    </section>
+
+    <script>
+        async function getApiData() {
+            const userName = document.getElementById("userName");
+            const userEmail = document.getElementById("userEmail");
+            const courses = document.getElementById("courses");
+
+            console.log(getCurrentTime() + " comienza getUserInfo");
+            const userInfo = await getUserInfo();
+            userName.innerHTML = userInfo.name;
+            userEmail.innerHTML = userInfo.email;
+            console.log(getCurrentTime() + "acaba getUserInfo");
+
+            console.log(getCurrentTime() + "comienza getUserEnrolledCourses");
+            const enrolledCourses = await getUserEnrolledCourses();
+            console.log(getCurrentTime() + "acaba getUserEnrolledCourses");
+            enrolledCourses.forEach((course) => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = course.title;
+                courses.appendChild(listItem);
+            });
+        }
+        
+        getApiData();
+    </script>
+  </body>
+</html>

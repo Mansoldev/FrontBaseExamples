@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css"/>
+    <link rel="stylesheet" href="./loader.css" type="text/css" />
+    <title>Ejemplo llamada concurrente manejando errores</title>
+    <script src="ApiSimulator.js"></script>
+    <style>
+        #errors {
+          background-color: #fe4545;
+          border-radius: 0.25rem;
+        }
+  
+        #errors li {
+          list-style-type: none;
+          color: white;
+        }
+      </style>
+  </head>
+  <body>
+    <h1>User dashboard</h1>
+
+    <section>
+      <h5>User info</h5>
+      <ul>
+        <li>Name: <span id="userName"></span></li>
+        <li>Email: <span id="userEmail"></span></li>
+      </ul>
+
+      <h5>User enrolled courses</h5>
+      <ul id="courses"></ul>
+
+      <ul id="errors"></ul>
+    </section>
+
+    <script>
+        //Se puede controlar el estado de las llamadas
+        async function getApiData() {
+            const userName = document.getElementById("userName");
+            const userEmail = document.getElementById("userEmail");
+            const courses = document.getElementById("courses");
+            const errors = document.getElementById("errors");
+
+            Promise.allSettled([getUserInfo(), getBadUserEnrolledCourses()]).then((promisesResults) => {
+                const [userInfoPromiseResult, enrolledCoursesPromiseResult] = promisesResults;
+
+                if (userInfoPromiseResult.status === "fulfilled") {
+                    console.log("fulfilled 1")
+                    userName.innerHTML = userInfoPromiseResult.value.name;
+                    userEmail.innerHTML = userInfoPromiseResult.value.email;
+                }
+
+                if (enrolledCoursesPromiseResult.status === "fulfilled") {
+                    console.log("fulfilled 2")
+                    enrolledCoursesPromiseResult.value.forEach((course) => {
+                        const listItem = document.createElement("li");
+                        listItem.innerHTML = course.title;
+                        courses.appendChild(listItem);
+                    });
+                }
+
+                promisesResults
+                    .filter((r) => r.status === "rejected")
+                    .forEach((r) => {
+                        const error = document.createElement("li");
+                        error.innerHTML = r.reason;
+                        errors.appendChild(error);
+                    });
+            });
+        }
+        
+        getApiData();
+    </script>
+  </body>
+</html>
