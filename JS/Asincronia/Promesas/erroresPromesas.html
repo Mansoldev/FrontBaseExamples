@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evitar rotura del código JS por error en promesa</title>
+</head>
+<body>
+    <script>
+        //Podemos capturar cualquier error de promesa para que no falle toda la aplicación
+
+        //Browser:
+        window.addEventListener("unhandledrejection", (event) => {
+            console.error("Unexpected error");
+        });
+        
+        //Node:
+        // process.on("unhandledRejection", () => {
+        //     console.error("Unexpected error");
+        // });
+
+        //Configurar ESLint:
+        //La regla de ESLint no-floating-promises nos puede ayudar a detectar casos en los que no estemos tratando las promesas con catch ni devolviéndolas.
+    </script>
+</body>
+</html>
