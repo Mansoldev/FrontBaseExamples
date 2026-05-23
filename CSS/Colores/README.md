@@ -116,6 +116,17 @@ Podríamos prescindir de añadir la variación según la media query en el CSS, 
 
 El otro problema de este método es que, entre que se hace la comprobación de si hay una preferencia en localStorage y se aplica la clase, se puede producir un flash del theme incorrecto durante unas milésimas de segundo. Veremos más adelante cómo solucionarlo.
 
+El parpadeo del tema (Flash of Unstyled Content - FOUC)
+Veredicto: VIGENTÍSIMO.
+
+La solución actual: Si lees localStorage dentro del ciclo de vida de un framework SPA (como el useEffect de React o el onMounted de Vue), el HTML ya se habrá renderizado con el tema por defecto, provocando el flash blanco/negro destructivo para los ojos. La solución senior inmutable es meter un pequeño script síncrono e inline justo al inicio del <body> (o en el <head> si usas SSR/Astro) antes de que se pinte la página:
+
+HTML
+<script>
+  const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', theme);
+</script>
+
 ### Variables guays + mixins 43b:
 
 Puedes encontrar el código de este vídeo en GitHub: [ejemplo con mixins](https://github.com/CodelyTV/css-light-dark-mode-course/tree/main/43-preprocessors) y [ejemplo con variable toggle y función](https://github.com/CodelyTV/css-light-dark-mode-course/tree/main/43b-preprocessors).
@@ -198,6 +209,11 @@ De esta forma podemos aplicarlo de esta forma en cualquier clase:
 }
 ```
 
+La duplicidad de código por mezclar Media Queries y Clases JS
+Veredicto: Sigue siendo un problema real, pero se resuelve de forma distinta.
+
+La solución actual: En lugar de duplicar bloques enteros, en 2026 la estrategia limpia es utilizar la propiedad nativa color-scheme en el :root combinada con selectores avanzados de PostCSS o la función light-dark(). Tu JS solo necesita mutar un atributo (ej. data-theme="dark") en el <html>, y el CSS resuelve todo de forma lineal.
+
 Si queremos llevarlo un paso más allá, podemos usar el truco para hacer toggle de variables que se detalla en [este artículo de CSS Tricks](https://css-tricks.com/a-dry-approach-to-color-themes-in-css/) (gracias a [Antonio que nos lo compartió en este mismo curso](https://pro.codely.tv/library/light-dark-themes-accesibles/204518/path/step/118483783/discussion/1676095/)). De esta forma solo tenemos que hacer toggle de las variables `--light` y `--dark`:
 
 ```brainfuck
@@ -237,6 +253,13 @@ Al usar una función Sass para abstraernos de la magia nos quedarían las declar
 }
 ```
 
+1. El truco del Variable Toggle (--ON, --OFF) e Inyección de Mixins
+Veredicto en 2026: OBSOLETO / INNECESARIO.
+
+Por qué: El truco de usar variables vacías (--OFF: ;) combinadas con initial para hacer condicionales lógicos en CSS puro era una genialidad de ingeniería para la época, pero era un hack difícil de mantener y leer para otros desarrolladores.
+
+La solución actual: En 2026 contamos con la función nativa light-dark() de CSS. Los navegadores la soportan de forma masiva. Te permite definir ambos valores en una sola línea de CSS nativo sin hacks, sin mixins complejos y reaccionando automáticamente tanto a las preferencias del sistema (prefers-color-scheme) como al elemento HTML si hereda un esquema de color.
+
 ### Fuentes:
 
 Como hemos visto anteriormente los textos en un tema oscuro pueden ser más difíciles de leer. Podemos compensar un poco estos problemas realizando ajustes tipográficos.
@@ -244,3 +267,23 @@ Como hemos visto anteriormente los textos en un tema oscuro pueden ser más dif�
 En un tema oscuro el texto tiende a verse más bold que en uno claro. Ciertos ajustes como `-webkit-font-smoothing: antialiased;` minimizan este efecto, pero no estan disponibles en todos los navegadores.
 
 Las fuentes variables nos permiten ajustar el peso de la tipografía gradualmente, sin saltos tan evidentes como regular/bold, que serian demasiado para este caso. Además, ayudan a la performance de nuestra página ya que no tenemos que cargar todos los pesos en nuestra página. Google Fonts ya ofrece las tipografias variables.
+
+Ejemplo B: Funciones de fluidos tipográficos (clamp) automáticos
+En 2026 queremos tipografías fluidas que se adapten al tamaño de pantalla sin necesidad de lanzar decenas de @media (max-width). Escribir la fórmula matemática de clamp() a mano es horrible. Sass lo calcula en el build.
+
+SCSS
+// _abstracts/_functions.scss
+@use 'sass:math';
+
+@function fluid-size($min-size, $max-size, $min-breakpoint: 320px, $max-breakpoint: 1200px) {
+  $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
+  $y-intersection: -$min-breakpoint * $slope + $min-size;
+  
+  // Devuelve un valor nativo de CSS perfectamente calculado
+  return clamp(#{$min-size}, #{$y-intersection} + #{$slope * 100vw}, #{$max-size});
+}
+
+// Uso en _base/_typography.scss:
+h1 {
+  font-size: fluid-size(24px, 48px); /* Escala suavemente entre 24px y 48px según pantalla */
+}
